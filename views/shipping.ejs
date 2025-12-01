@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping - Amazon Clone</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background-color: #f3f3f3; 
+        }
+        .container { 
+            max-width: 500px; 
+            margin: auto; 
+            background-color: white; 
+            padding: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        }
+        h1 { 
+            text-align: center; 
+            color: #232f3e; 
+            margin-bottom: 20px; 
+        }
+        form { 
+            display: flex; 
+            flex-direction: column; 
+        }
+        label { 
+            font-weight: bold; 
+            margin-top: 15px; 
+            color: #333; 
+        }
+        input, select, textarea { 
+            width: 100%; 
+            padding: 12px; 
+            margin-top: 5px; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+            font-size: 16px; 
+        }
+        input:focus, select:focus, textarea:focus { 
+            border-color: #ff9900; 
+            outline: none; 
+        }
+        button { 
+            margin-top: 25px; 
+            padding: 15px; 
+            background-color: #ff9900; 
+            color: white; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            font-size: 18px; 
+            font-weight: bold; 
+        }
+        button:hover { 
+            background-color: #e68a00; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shipping Information</h1>
+        <form action="/submitorders" method="post"> <!-- Replace with your actual submission endpoint -->
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" required placeholder="Enter your full address"></textarea>
+            
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+            
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required placeholder="Enter your city">
+            
+            <label for="pin">PIN Code:</label>
+            <input type="text" id="pin" name="pin" required placeholder="Enter your PIN code">
+            
+            <label for="mode">Payment Mode:</label>
+            <select id="mode" name="mode" required>
+                <option value="">Select Payment Mode</option>
+                <option value="credit">Credit Card</option>
+                <option value="debit">Debit Card</option>
+                <option value="paypal">PayPal</option>
+                <option value="netbanking">Net Banking</option>
+                <option value="cod">Cash on Delivery</option>
+            </select>
+            
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+</body>
+</html>

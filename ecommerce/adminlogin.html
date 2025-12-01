@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/2048px-Amazon_icon.svg.png" type="image/x-icon">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        amazon: {
+                            'light': '#232F3E',
+                            'blue': '#131921',
+                            'yellow': '#FEBD69',
+                            'header': '#131921',
+                            'nav': '#232F3E',
+                            'cart': '#f0c14b',
+                            'prime': '#37475a'
+                        },
+                        'dark-sidebar': '#1e293b',
+                        'light-bg': '#f1f5f9',
+                        'card-bg': '#ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-800 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Login Card -->
+    <div class="bg-card-bg w-full max-w-sm rounded-xl shadow-2xl p-8 flex flex-col items-center space-y-6">
+        <h1 class="text-3xl font-bold text-gray-900">Admin Login</h1>
+        
+        <img class="w-16 h-16 rounded-full border-2 border-amazon-blue" src="https://placehold.co/100x100/131921/ffffff?text=AD" alt="Admin login icon">
+
+        <!-- Login Form -->
+        <form action="adminprocess" method="post" class="w-full space-y-4">
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email"  name="email" class="mt-1 block w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-amazon-yellow focus:border-amazon-yellow sm:text-sm" required>
+            </div>
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="password" name="password" class="mt-1 block w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-amazon-yellow focus:border-amazon-yellow sm:text-sm" required>
+            </div>
+            <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-black bg-amazon-yellow hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition-colors duration-200">
+                Login
+            </button>
+        </form>
+
+        <!-- Message Box -->
+        <div id="message-box" class="w-full p-3 rounded-lg text-sm text-center transition-opacity duration-300 ease-in-out opacity-0"></div>
+
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents the form from submitting and reloading the page
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const messageBox = document.getElementById('message-box');
+
+            // Simple validation (for demo purposes)
+            if (username === 'admin' && password === 'password') {
+                showMessage('Login successful! Redirecting to dashboard...', 'bg-green-100 text-green-700');
+                // In a real application, you would redirect here
+                // window.location.href = 'admin-dashboard.html';
+            } else {
+                showMessage('Invalid username or password.', 'bg-red-100 text-red-700');
+            }
+        });
+
+        function showMessage(message, classes) {
+            const messageBox = document.getElementById('message-box');
+            messageBox.textContent = message;
+            messageBox.className = `w-full p-3 rounded-lg text-sm text-center transition-opacity duration-300 ease-in-out opacity-100 ${classes}`;
+            setTimeout(() => {
+                messageBox.classList.remove('opacity-100');
+                messageBox.classList.add('opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

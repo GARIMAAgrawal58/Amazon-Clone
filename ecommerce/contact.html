@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Clone - Contact Us</title>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/2048px-Amazon_icon.svg.png" type="image/x-icon">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        amazon: {
+                            'light': '#232F3E',
+                            'blue': '#131921',
+                            'yellow': '#FEBD69',
+                            'header': '#131921',
+                            'nav': '#232F3E',
+                            'cart': '#f0c14b',
+                            'prime': '#37475a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+     <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-amazon-blue text-white py-2 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+                <a href="#" class="flex items-center p-2">
+                    <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon Logo" class="w-24 mt-2">
+                </a>
+            </div>
+            <!-- Nav Items -->
+            <div class="flex items-center space-x-4 text-sm">
+                <!-- <a href="#" class="hidden md:block cursor-pointer hover:border border-white p-2 rounded-md">
+                    <p class="text-xs">Hello, Sign in</p>
+                    <p class="font-bold text-sm">Account & Lists</p>
+                </a> -->
+                <a href="vorders" class="hidden md:block cursor-pointer hover:border border-white p-2 rounded-md">
+                    <p class="text-xs">Returns</p>
+                    <p class="font-bold text-sm">& Orders</p>
+                </a>
+                <a href="#" class="relative cursor-pointer hover:border border-white p-2 rounded-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.183 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-amazon-blue bg-amazon-yellow rounded-full">0</span>
+                    <span class="hidden md:inline font-bold text-sm mt-2 ml-1">Cart</span>
+                </a>
+            </div>
+        </div>
+        <div class="bg-amazon-nav text-white text-sm py-2 px-4 flex items-center space-x-4 overflow-x-auto whitespace-nowrap scrollbar-hide">
+            <a href="#" class="p-1 hover:border border-white rounded-md cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                All
+            </a>
+            <a href="#" class="p-1 hover:border border-white rounded-md cursor-pointer">Today's Deals</a>
+            <a href="#" class="p-1 hover:border border-white rounded-md cursor-pointer">Customer Service</a>
+            <a href="#" class="p-1 hover:border border-white rounded-md cursor-pointer">Registry</a>
+            <a href="#" class="p-1 hover:border border-white rounded-md cursor-pointer">Gift Cards</a>
+            <a href="#" class="p-1 hover:border border-white rounded-md cursor-pointer">Sell</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center py-10">
+        <!-- Contact Card -->
+        <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-2xl mx-4">
+            <h1 class="text-3xl font-bold text-center mb-4 text-amazon-blue">Contact Us</h1>
+            <p class="text-center text-gray-600 mb-8">We're here to help! Please fill out the form below or use our contact information to get in touch.</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Contact Form -->
+                <div>
+                    <h2 class="text-2xl font-semibold mb-4 text-amazon-blue">Send us a Message</h2>
+                    <form action="contactdetail" method="post" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+                            <input type="text"  name="cname" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amazon-yellow focus:border-amazon-yellow sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
+                            <input type="email"  name="cemail" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amazon-yellow focus:border-amazon-yellow sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
+                            <input type="text"  name="sub" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amazon-yellow focus:border-amazon-yellow sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Your Message</label>
+                            <textarea  name="msg" rows="4" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amazon-yellow focus:border-amazon-yellow sm:text-sm"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-amazon-cart text-amazon-blue py-2 px-4 rounded-md font-semibold hover:bg-amazon-yellow transition-colors">Submit</button>
+                    </form>
+                </div>
+
+                <!-- Other Contact Info -->
+                <div class="p-6 bg-gray-50 rounded-lg shadow-inner">
+                    <h2 class="text-2xl font-semibold mb-4 text-amazon-blue">Other Ways to Connect</h2>
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-start space-x-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amazon-blue flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            <div>
+                                <h4 class="font-medium text-lg">Phone</h4>
+                                <p>(800) 888-8888</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amazon-blue flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-9 13l-9-9V6a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2v-1z" />
+                            </svg>
+                            <div>
+                                <h4 class="font-medium text-lg">Email</h4>
+                                <p>support@amazon.com</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amazon-blue flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.999 1.999 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <div>
+                                <h4 class="font-medium text-lg">Address</h4>
+                                <p>410 Terry Ave N, Seattle, WA 98109, USA</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-amazon-blue text-white mt-auto">
+        <!-- Back to top -->
+        <a href="#" class="block text-center py-4 bg-amazon-light hover:bg-amazon-nav transition-colors duration-200">Back to top</a>
+        <!-- Main Footer Links -->
+        <div class="container mx-auto py-8 px-4 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="font-bold text-lg mb-2">Get to Know Us</h3>
+                <ul class="text-sm space-y-2 text-gray-300">
+                    <li><a href="#" class="hover:underline">Careers</a></li>
+                    <li><a href="#" class="hover:underline">Blog</a></li>
+                    <li><a href="#" class="hover:underline">About Amazon</a></li>
+                    <li><a href="#" class="hover:underline">Investor Relations</a></li>
+                    <li><a href="#" class="hover:underline">Amazon Devices</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-lg mb-2">Make Money with Us</h3>
+                <ul class="text-sm space-y-2 text-gray-300">
+                    <li><a href="#" class="hover:underline">Sell products on Amazon</a></li>
+                    <li><a href="#" class="hover:underline">Sell on Amazon Business</a></li>
+                    <li><a href="#" class="hover:underline">Sell apps on Amazon</a></li>
+                    <li><a href="#" class="hover:underline">Become an Affiliate</a></li>
+                    <li><a href="#" class="hover:underline">Advertise Your Products</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-lg mb-2">Amazon Payment Products</h3>
+                <ul class="text-sm space-y-2 text-gray-300">
+                    <li><a href="#" class="hover:underline">Amazon Business Card</a></li>
+                    <li><a href="#" class="hover:underline">Shop with Points</a></li>
+                    <li><a href="#" class="hover:underline">Reload Your Balance</a></li>
+                    <li><a href="#" class="hover:underline">Amazon Currency Converter</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-lg mb-2">Let Us Help You</h3>
+                <ul class="text-sm space-y-2 text-gray-300">
+                    <li><a href="#" class="hover:underline">Amazon and COVID-19</a></li>
+                    <li><a href="#" class="hover:underline">Your Account</a></li>
+                    <li><a href="#" class="hover:underline">Your Orders</a></li>
+                    <li><a href="#" class="hover:underline">Shipping Rates & Policies</a></li>
+                    <li><a href="#" class="hover:underline">Returns & Replacements</a></li>
+                    <li><a href="#" class="hover:underline">Manage Your Content and Devices</a></li>
+                    <li><a href="#" class="hover:underline">Amazon Assistant</a></li>
+                    <li><a href="#" class="hover:underline">Help</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Bottom section -->
+        <div class="bg-amazon-blue py-6 border-t border-gray-700">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
+                <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon Logo" class="w-24 filter invert">
+                <div class="flex items-center space-x-4">
+                    <button class="flex items-center space-x-1 p-2 border border-gray-600 rounded-md hover:bg-gray-700 transition-colors duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1.897 14.124A5.992 5.992 0 016.34 11.082l-.443-.178-.018-.007-.008-.003-.004-.002a.5.5 0 01.37-.95l.443.178.018.007.008.003.004.002a5.989 5.989 0 015.357-1.127l.112.029.022.006.01.003.004.001a.5.5 0 01.442.946l-.443-.178-.018-.007-.008-.003-.004-.002a4.989 4.989 0 00-4.464 1.042l-.112-.029-.022-.006-.01-.003-.004-.001a.5.5 0 01-.442-.946zM13.25 15a.5.5 0 00-.5.5v2a.5.5 0 001 0v-2a.5.5 0 00-.5-.5zm-3.5 0a.5.5 0 00-.5.5v2a.5.5 0 001 0v-2a.5.5 0 00-.5-.5z"/>
+                        </svg>
+                        <span class="text-sm">English</span>
+                    </button>
+                    <button class="flex items-center space-x-1 p-2 border border-gray-600 rounded-md hover:bg-gray-700 transition-colors duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 110-16 8 8 0 010 16z"/>
+                            <path d="M12 4.5a.5.5 0 00-.5.5v2.5a.5.5 0 001 0V5a.5.5 0 00-.5-.5z"/>
+                            <path d="M12 11.5a.5.5 0 00-.5.5v2a.5.5 0 001 0v-2a.5.5 0 00-.5-.5z"/>
+                            <path d="M12 17.5a.5.5 0 00-.5.5v2a.5.5 0 001 0v-2a.5.5 0 00-.5-.5z"/>
+                            <path d="M16 11.5a.5.5 0 00-.5.5v2a.5.5 0 001 0v-2a.5.5 0 00-.5-.5z"/>
+                            <path d="M8 11.5a.5.5 0 00-.5.5v2a.5.5 0 001 0v-2a.5.5 0 00-.5-.5z"/>
+                            <path d="M16 8.5a.5.5 0 00-.5.5v2a.5.5 0 001 0v-2a.5.5 0 00-.5-.5z"/>
+                            <path d="M8 8.5a.5.5 0 00-.5.5v2a.5.5 0 001 0v-2a.5.5 0 00-.5-.5z"/>
+                        </svg>
+                        <span class="text-sm">USD - U.S. Dollar</span>
+                    </button>
+                    <button class="flex items-center space-x-1 p-2 border border-gray-600 rounded-md hover:bg-gray-700 transition-colors duration-200">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Electronics_1x._SY304_CB432774322_.jpg" onerror="this.onerror=null;this.src='https://placehold.co/16x12/fff/000?text=US';" alt="US Flag" class="h-3 w-4">
+                        <span class="text-sm">United States</span>
+                    </button>
+                </div>
+            </div>
+            <div class="text-center text-xs text-gray-500 mt-4">
+                <ul class="flex justify-center space-x-4 mb-2">
+                    <li><a href="#" class="hover:underline">Conditions of Use</a></li>
+                    <li><a href="#" class="hover:underline">Privacy Notice</a></li>
+                    <li><a href="#" class="hover:underline">Your Ads Privacy Choices</a></li>
+                </ul>
+                <p>&copy; 1996-2023, Amazon.com, Inc. or its affiliates</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Message Box -->
+    <div id="message-box" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-lg shadow-xl w-11/12 md:w-1/3">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold">Contact Status</h3>
+                <button id="close-message-btn" class="text-gray-500 hover:text-gray-800 text-3xl font-bold">&times;</button>
+            </div>
+            <p id="message-box-text" class="mb-4 text-gray-700"></p>
+            <button id="ok-message-btn" class="w-full bg-amazon-cart text-amazon-blue py-2 rounded-md font-semibold hover:bg-amazon-yellow">OK</button>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('contact-form');
+        const messageBox = document.getElementById('message-box');
+        const messageBoxText = document.getElementById('message-box-text');
+        const closeMessageBtn = document.getElementById('close-message-btn');
+        const okMessageBtn = document.getElementById('ok-message-btn');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Simple "success" message
+            showMessage('Your message has been sent! We will get back to you shortly.');
+            form.reset();
+        });
+
+        function showMessage(text) {
+            messageBoxText.textContent = text;
+            messageBox.classList.remove('hidden');
+        }
+
+        function hideMessage() {
+            messageBox.classList.add('hidden');
+        }
+
+        closeMessageBtn.addEventListener('click', hideMessage);
+        okMessageBtn.addEventListener('click', hideMessage);
+        messageBox.addEventListener('click', (e) => {
+            if (e.target.id === 'message-box') {
+                hideMessage();
+            }
+        });
+    </script>
+</body>
+</html>
