@@ -1,6 +1,7 @@
 // ============== Basic Setup ==============
 const express = require('express');
 const app = express();
+require("dotenv").config();
 const path = require('path');
 
 // EJS + Static + Parsing
@@ -25,21 +26,29 @@ app.use((req,res,next)=>{
 
 
 // ============== Database Connection ==============
+// const mysql = require("mysql");
+// const con = mysql.createConnection({
+//     host:"127.0.0.1",
+//     user:"root",
+//     password:"",
+//     database:"amazon"
+// });
 const mysql = require("mysql");
-const con = mysql.createConnection({
-    host:"127.0.0.1",
-    user:"root",
-    password:"",
-    database:"amazon"
+
+const db = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 });
-con.connect((err)=>{
+db.connect((err)=>{
     if(err) 
         console.error('Connection error')
     console.log("Connected to MySQL ✔");
 });
 
 // make MySQL available for routes
-app.locals.con = con;
+app.locals.db = db;
 
 
 
@@ -55,6 +64,5 @@ app.use('/', webroutes);
 
 
 // ========= Server Start =========
-app.listen(1000, ()=>{
-    console.log("Server running on port 1000 ✔");
-});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));
