@@ -13,26 +13,20 @@ app.use(express.urlencoded({ extended: true }));
 const session = require('express-session');
 app.use(session({
     secret: '1231www@',
-    resave: true,
-    saveUninitialized: true
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false }
 }));
+
 app.use((req,res,next)=>{
     res.locals.aname = req.session.aname;
     res.locals.aemail = req.session.aemail;
-    res.locals.uname=req.session.uname;
-    res.locals.uemail=req.session.uemail;
+    res.locals.uname = req.session.uname;
+    res.locals.uemail = req.session.uemail;
     next();
 });
 
-
 // ============== Database Connection ==============
-// const mysql = require("mysql");
-// const con = mysql.createConnection({
-//     host:"127.0.0.1",
-//     user:"root",
-//     password:"",
-//     database:"amazon"
-// });
 const mysql = require("mysql");
 
 const db = mysql.createConnection({
@@ -41,16 +35,17 @@ const db = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
 });
+
 db.connect((err)=>{
-    if(err) 
-        console.error('Connection error')
-    console.log("Connected to MySQL ✔");
+    if(err) {
+        console.error("DB Error:", err);
+    } else {
+        console.log("Connected to MySQL ✔");
+    }
 });
 
-// make MySQL available for routes
-app.locals.db = db;
-
-
+// ✅ IMPORTANT FIX (DO NOT CHANGE NAME)
+app.locals.con = db;
 
 
 // static for uploaded images
@@ -59,9 +54,6 @@ app.use(express.static("ecommerce/uploads"));
 // ============== Web Routes File ==============
 const webroutes = require('./routes/webRoutes');
 app.use('/', webroutes);
-
-
-
 
 // ========= Server Start =========
 const PORT = process.env.PORT || 5000;
